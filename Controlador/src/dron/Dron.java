@@ -3,13 +3,13 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package dron;
+package Dron;
 
 /**
  *
  * @author aleta
  */
-public class dron {
+public class Dron {
     private int ancho;
     private int largo;
     private int altura;
@@ -26,7 +26,7 @@ public class dron {
 
   
     
-    public dron(){
+    public Dron(){
         ancho=2;
         largo=2;
         altura=3;

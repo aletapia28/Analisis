@@ -25,6 +25,22 @@ public class Pista {
        this.ancho= anchoPista;
        this.largo= largoPista;
    }
+
+    public int getAncho() {
+        return ancho;
+    }
+
+    public void setAncho(int ancho) {
+        this.ancho = ancho;
+    }
+
+    public int getLargo() {
+        return largo;
+    }
+
+    public void setLargo(int largo) {
+        this.largo = largo;
+    }
       
     
 }
