@@ -3,21 +3,12 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package controlador;
+package analisis;
 
 /**
  *
- * @author aleta
+ * @author ariel
  */
-
-public class Controlador {
-       
-    
-
-    
-    
-    public static void main(String[] args) {
-        // TODO code application logic here
-    }
+public class TestDijkstraAlgorithm {
     
 }
