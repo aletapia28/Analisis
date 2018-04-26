@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package simulatorlogic;
+package Graph;
 
 /**
  *
@@ -11,10 +11,9 @@ package simulatorlogic;
  */
 public class Edge {
     public final Vertex target;
-    public final double weight;
-    
-    public Edge(Vertex target, double weight){
-	this.target = target;
-	this.weight = weight;
-    }
+	public final double weight;
+	public Edge(Vertex target, double weight){
+		this.target = target;
+		this.weight = weight;
+	}
 }
