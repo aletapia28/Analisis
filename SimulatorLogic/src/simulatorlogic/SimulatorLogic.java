@@ -4,19 +4,27 @@
  * and open the template in the editor.
  */
 package simulatorlogic;
-
 import java.util.HashMap;
+import simulatorlogic.Constants;
 
 /**
  *
  * @author ariel
  */
 public class SimulatorLogic {
+    
+    
 
-    /**
-     * @param args the command line arguments
-     */
+    
+    
     public static void main(String[] args) {
+      
+   
+        Calculations c = new Calculations();
+        c.getCapacity(Constants.ROAD_WIDTH, Constants.ROAD_HIGH, Constants.DRONE_NUMBER);
+        int a= c.getCapacity(Constants.ROAD_WIDTH, Constants.ROAD_HIGH, Constants.DRONE_NUMBER);
+        System.out.println(a);
+        
         grafo g = new grafo();
         char[]vertices={'a','b','c'};
         
