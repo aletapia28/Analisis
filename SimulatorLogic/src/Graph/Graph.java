@@ -16,7 +16,7 @@ public class Graph {
 	public Graph(int numberVertices){
 		vertices = new ArrayList<Vertex>(numberVertices);
 		for(int i=0;i<numberVertices;i++){
-			vertices.add(new Vertex(Integer.toString(i)));
+			vertices.add(new Vertex(i));
 		}
 	}
 	

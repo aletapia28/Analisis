@@ -43,9 +43,6 @@ public class SimulatorLogic {
                 
         obj.calculate(g.getVertex(8));
         obj.PrintGraph(g);
-        
-        
-        
     
         
     }
