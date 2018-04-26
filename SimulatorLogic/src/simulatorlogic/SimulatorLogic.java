@@ -8,6 +8,7 @@ import java.util.HashMap;
 import simulatorlogic.Constants;
 
 /**
+ * 
  *
  * @author ariel
  */
@@ -21,9 +22,15 @@ public class SimulatorLogic {
       
    
         Calculations c = new Calculations();
-        c.getCapacity(Constants.ROAD_WIDTH, Constants.ROAD_HIGH, Constants.DRONE_NUMBER);
-        int a= c.getCapacity(Constants.ROAD_WIDTH, Constants.ROAD_HIGH, Constants.DRONE_NUMBER);
-        System.out.println(a);
+       c.getCapacity(Constants.ROAD_WIDTH, Constants.ROAD_HIGH, Constants.DRONE_NUMBER);
+        //int a= c.getCapacity(Constants.ROAD_WIDTH, Constants.ROAD_HIGH, Constants.DRONE_NUMBER);
+       // System.out.println(a);
+        
+     //   c.getTravelNumbers(Constants.DRONE_NUMBER);
+        
+        
+        
+        
         
         grafo g = new grafo();
         char[]vertices={'a','b','c'};
