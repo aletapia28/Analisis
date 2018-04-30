@@ -10,11 +10,11 @@ package simulatorlogic;
  * @author ariel
  */
 public class Vertice {
-    String nombre;
-    public Vertice(String n){
+    int nombre;
+    public Vertice(int n){
         nombre = n;
     }
-    public String getNombre(){
+    public int getNombre(){
         return nombre;
     }
 }
