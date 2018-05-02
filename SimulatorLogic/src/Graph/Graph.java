@@ -20,14 +20,8 @@ public class Graph {
 	public Graph(int numberVertices){
 		vertices = new ArrayList<Vertex>(numberVertices);
 		for(int i=0;i<numberVertices;i++){
-			String n = "N"+i;
-			//System.out.println(name);
-			int name = Constants.N1.name;
-			int x=Constants.N1.xpos;
-			int y= Constants.N10.ypos;
 			
-			
-			vertices.add(new Vertex(1,2,3));
+			vertices.add(new Vertex(i));
 		}
 	}
 	

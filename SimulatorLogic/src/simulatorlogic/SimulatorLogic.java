@@ -29,7 +29,7 @@ public class SimulatorLogic {
        // System.out.println(a);
        //c.getTravelNumbers(Constants.DRONE_NUMBER);
        
-       Dijkstra obj = new Dijkstra();
+      // Dijkstra obj = new Dijkstra();
 		
 	// Create a new graph.
       
