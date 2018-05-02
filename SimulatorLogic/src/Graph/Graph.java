@@ -6,6 +6,8 @@
 package Graph;
 
 import java.util.*;
+import simulatorlogic.Constants;
+
 
 /**
  *
@@ -13,12 +15,29 @@ import java.util.*;
  */
 public class Graph {
     private ArrayList<Vertex> vertices;
+    
+    
 	public Graph(int numberVertices){
 		vertices = new ArrayList<Vertex>(numberVertices);
 		for(int i=0;i<numberVertices;i++){
-			vertices.add(new Vertex(i));
+			String n = "N"+i;
+			//System.out.println(name);
+			int name = Constants.N1.name;
+			int x=Constants.N1.xpos;
+			int y= Constants.N10.ypos;
+			
+			
+			vertices.add(new Vertex(1,2,3));
 		}
 	}
+	
+
+	
+	public Graph (ArrayList <Vertex> vertexs) {
+		
+		
+	}
+
 	
 	public void addEdge(int src, int dest, int weight){
 		Vertex s = vertices.get(src);
