@@ -26,12 +26,11 @@ public class GraphGenerator {
 		
 		public void CreateStations() {
 			ArrayList <Vertex> Stations = new ArrayList <Vertex>() ;
-		
-			
+					
 		}
 		
 		
-	/*	public void ModifyDistance(Graph g) {
+		public void ModifyDistance(Graph g) {
 			for(int i =0; i<= Constants.STATIONS_NUMBER; i++) {
 					
 				
@@ -40,30 +39,28 @@ public class GraphGenerator {
 			 	v.ypos=2;
 			 	
 			}
-		}*/
+		}
 		
 		
-	/*	public double CalculateWeight(Graph g, int origin, int destination) {
+		public double CalculateWeight(Graph g, int origin, int destination) {
 			
 			double Weigth=0;		
 			
 			Weigth= Math.sqrt(Math.abs(g.getVertex(origin).xpos+g.getVertex(destination).xpos)
 					+ Math.abs(g.getVertex(origin).ypos + g.getVertex(destination).ypos)) ;
 						  
-			
 			return Weigth;
 		
 			
 			
-		}*/
+		}
 		
-	/*	public void GenerateEdge(Graph g, int Origin) {
+		public void GenerateEdge(Graph g, int Origin) {
 			// ver cual es la distancia mas corta
 			// ver si ya tiene min de arcos
 			//si no agrega uno mas
 			
-			Vertex v;
-			v=Vertices.get(Origin);
+			Vertex v= g.getVertex(Origin);
 			if (v.EdgeNumber <= Constants.EDGE_NUMBER) {
 				// ver cuales son los vecinos cercanos
 				// cual lista es la que lo tiene? victor
@@ -71,7 +68,7 @@ public class GraphGenerator {
 			}
 			
 		}
-		*/
+		
 		
 		
 		
