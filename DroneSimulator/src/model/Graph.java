@@ -3,9 +3,11 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package simulatorlogic;
+package model;
 
 import java.util.*;
+import controller.Constants;
+
 
 /**
  *
@@ -13,18 +15,29 @@ import java.util.*;
  */
 public class Graph {
     private ArrayList<Vertex> vertices;
+    
+    
 	public Graph(int numberVertices){
 		vertices = new ArrayList<Vertex>(numberVertices);
 		for(int i=0;i<numberVertices;i++){
-			vertices.add(new Vertex(Integer.toString(i)));
+			
+			vertices.add(new Vertex(i));
 		}
 	}
+	
+
+	
+//	public Graph (ArrayList <Vertex> vertexs) {		
+	
+//	}
+
 	
 	public void addEdge(int src, int dest, int weight){
 		Vertex s = vertices.get(src);
 		Edge new_edge = new Edge(vertices.get(dest),weight);
 		s.neighbours.add(new_edge);
 	}
+	
 	
 	public ArrayList<Vertex> getVertices() {
 		return vertices;
