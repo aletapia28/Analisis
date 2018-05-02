@@ -40,6 +40,7 @@ public class GraphGenerator {
 			}
 		}
 		
+		
 		public double CalculateWeight(Graph g, int origin, int destination) {
 			
 			double Weigth=0;		
@@ -62,6 +63,7 @@ public class GraphGenerator {
 			Vertex v=g.getVertex(Origin);
 			if (v.EdgeNumber <= Constants.EDGE_NUMBER) {
 				// ver cuales son los vecinos cercanos
+				// cual lista es la que lo tiene? victor
 				
 			}
 			
