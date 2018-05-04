@@ -27,10 +27,9 @@ public class Graph {
 	
 
 	
-	public Graph (ArrayList <Vertex> vertexs) {
-		
-		
-	}
+//	public Graph (ArrayList <Vertex> vertexs) {		
+	
+//	}
 
 	
 	public void addEdge(int src, int dest, int weight){
@@ -38,6 +37,7 @@ public class Graph {
 		Edge new_edge = new Edge(vertices.get(dest),weight);
 		s.neighbours.add(new_edge);
 	}
+	
 	
 	public ArrayList<Vertex> getVertices() {
 		return vertices;

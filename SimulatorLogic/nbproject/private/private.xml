@@ -3,13 +3,16 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-<<<<<<< HEAD
-            <file>file:/C:/Users/aleta/Desktop/Proyecto/SimulatorLogic/src/Graph/Vertex.java</file>
-            <file>file:/C:/Users/aleta/Desktop/Proyecto/SimulatorLogic/src/Graph/Graph.java</file>
-            <file>file:/C:/Users/aleta/Desktop/Proyecto/SimulatorLogic/src/simulatorlogic/SimulatorLogic.java</file>
-=======
-            <file>file:/C:/Users/Víctor/Documents/GitHub/Analisis/SimulatorLogic/src/simulatorlogic/Test.java</file>
->>>>>>> dev
+            <file>file:/C:/Users/ariel/Documents/GitHub/Analisis/SimulatorLogic/src/simulatorlogic/grafo.java</file>
+            <file>file:/C:/Users/ariel/Documents/GitHub/Analisis/SimulatorLogic/src/Graph/Dijkstra.java</file>
+            <file>file:/C:/Users/ariel/Documents/GitHub/Analisis/SimulatorLogic/src/simulatorlogic/Calculations.java</file>
+            <file>file:/C:/Users/ariel/Documents/GitHub/Analisis/SimulatorLogic/src/Graph/Vertex.java</file>
+            <file>file:/C:/Users/ariel/Documents/GitHub/Analisis/SimulatorLogic/src/Graph/Edge.java</file>
+            <file>file:/C:/Users/ariel/Documents/GitHub/Analisis/SimulatorLogic/src/simulatorlogic/Vertice.java</file>
+            <file>file:/C:/Users/ariel/Documents/GitHub/Analisis/SimulatorLogic/src/simulatorlogic/Constants.java</file>
+            <file>file:/C:/Users/ariel/Documents/GitHub/Analisis/SimulatorLogic/src/Graph/grafo.java</file>
+            <file>file:/C:/Users/ariel/Documents/GitHub/Analisis/SimulatorLogic/src/Graph/Graph.java</file>
+            <file>file:/C:/Users/ariel/Documents/GitHub/Analisis/SimulatorLogic/src/simulatorlogic/SimulatorLogic.java</file>
         </group>
     </open-files>
 </project-private>

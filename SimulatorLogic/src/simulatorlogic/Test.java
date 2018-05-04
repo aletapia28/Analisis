@@ -11,7 +11,7 @@ import java.util.HashMap;
  *
  * @author Víctor Alonso
  */
-public class Test {
+/*public class Test {
     HashMap<Integer,HashMap<Integer, Integer>>Timeline;
     public Test(){
         Timeline=new HashMap<Integer,HashMap<Integer,Integer>>();
@@ -33,4 +33,4 @@ public static void main(String[] args) {
         aux.put(4,0);
  //       t1.crearSlot(2,aux); 
     }    
-}
+}*/

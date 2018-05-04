@@ -25,6 +25,7 @@ public class SimulatorLogic {
        GraphGenerator g= new GraphGenerator();
        
        
+       
        //int a= c.getCapacity(Constants.ROAD_WIDTH, Constants.ROAD_HIGH, Constants.DRONE_NUMBER);
        // System.out.println(a);
        //c.getTravelNumbers(Constants.DRONE_NUMBER);
