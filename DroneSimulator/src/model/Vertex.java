@@ -16,6 +16,7 @@ public class Vertex implements Comparable<Vertex>{
     public int xpos=0;
     public int ypos=0;
     public int EdgeNumber=0;
+    
     public ArrayList<Edge> neighbours;
     public LinkedList<Vertex> path;
     public double minDistance = Double.POSITIVE_INFINITY;
@@ -56,5 +57,6 @@ public class Vertex implements Comparable<Vertex>{
 		}
         
         
+		
 		
 }

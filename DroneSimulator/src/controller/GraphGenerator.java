@@ -19,7 +19,10 @@ public class GraphGenerator {
 		//	this.Stations = new ArrayList<Vertex>();
 	//		this.Edges= new ArrayList<Edge>();
 			this.graph= new Graph(Constants.STATIONS_NUMBER);
-			//ModifyDistance(graph);
+			graph.GenerateEdge(graph, 1);
+			
+			//GenerateEdge(graph, 1);
+			//	ModifyDistance(graph);
 			
 		}
 		
@@ -34,9 +37,12 @@ public class GraphGenerator {
 			for(int i =0; i<= Constants.STATIONS_NUMBER; i++) {
 					
 				
-				Vertex v = g.getVertex(i);
-			 	v.xpos=Constants.N1.xpos;
-			 	v.ypos=2;
+			//	Vertex v = g.getVertex(i);
+				//int number = v.name;
+				//System.out.println(number);
+				
+			 	//v.xpos=Constants.N1.xpos;
+			 	//v.ypos=2;
 			 	
 			}
 		}
@@ -50,24 +56,15 @@ public class GraphGenerator {
 					+ Math.abs(g.getVertex(origin).ypos + g.getVertex(destination).ypos)) ;
 						  
 			return Weigth;
+			
+			
+			
 		
 			
 			
 		}
 		
-		public void GenerateEdge(Graph g, int Origin) {
-			// ver cual es la distancia mas corta
-			// ver si ya tiene min de arcos
-			//si no agrega uno mas
-			
-			Vertex v= g.getVertex(Origin);
-			if (v.EdgeNumber <= Constants.EDGE_NUMBER) {
-				// ver cuales son los vecinos cercanos
-				// cual lista es la que lo tiene? victor
-				
-			}
-			
-		}
+	
 		
 		
 		

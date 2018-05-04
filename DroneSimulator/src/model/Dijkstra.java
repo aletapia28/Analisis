@@ -16,12 +16,13 @@ public class Dijkstra {
     public void PrintGraph(Graph g){
      	// Print the minimum Distance.
 	for(Vertex v:g.getVertices()){
-	System.out.print("Vertex - "+v+" , Dist - "+ v.minDistance+" , Path - ");
+	System.out.print("Vertex - "+v.name+" , Dist - "+ v.minDistance+" , Path - ");
 	for(Vertex pathvert:v.path) {
         System.out.print(pathvert+" ");
 			}
-	System.out.println(""+v);
+	System.out.println(""+v.name);
 		}
+	
             
             
             
@@ -48,7 +49,7 @@ public class Dijkstra {
 					// Remove the node from the queue to update the distance value.
 					queue.remove(neighbour.target);
 					neighbour.target.minDistance = newDist;
-					
+										
 					// Take the path visited till now and add the new node.s
 					neighbour.target.path = new LinkedList<Vertex>(u.path);
 					neighbour.target.path.add(u);
