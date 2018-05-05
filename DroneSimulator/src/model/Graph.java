@@ -21,9 +21,16 @@ public class Graph {
 	public Graph(int numberVertices){
 		vertices = new ArrayList<Vertex>(numberVertices);
 		for(int i=0;i<numberVertices;i++){
+			vertices.add(Constants.N1);
 			vertices.add(new Vertex(i));
+			
+			
 			//System.out.println(vertices.get(i).name);
 		}
+		for (int j=0; j< numberVertices;j++) {
+			GenerateEdge(j);
+		}
+		
 	}
 	
 	
@@ -48,23 +55,30 @@ public class Graph {
 	}
 	
 	
-	public void GenerateEdge(Graph g, int Origin) {
-		// ver cual es la distancia mas corta
-		// ver si ya tiene min de arcos
-		//si no agrega uno mas
+	public void GenerateEdge( int Origin) {
 		
+		Vertex v= getVertex(Origin);
+		System.out.println(v.name);
 		
-		Vertex v= g.getVertex(Origin);
-		for (int i=0; i<= Constants.EDGE_NUMBER; i++) {
+				
+		for (int i=0; i< Constants.EDGE_NUMBER; i++) {
 			if (v.EdgeNumber <= Constants.EDGE_NUMBER) {
+				System.out.println("ENTRO");
 				// hay que saber cual es la ruta mas corta y su peso
 				int origin=Origin;
-				int destination=0;//Dikstra
-				int weight= CalculateWeight(g, origin, destination);
+				int destination=(int) (Math.random() * Constants.STATIONS_NUMBER) ; //Dikstra 
+				int weight=(int) (Math.random() * 100) ; //CalculateWeight( origin, destination);	
+				//System.out.println(origin);
+				//System.out.println(destination);
+				//System.out.println(weight);
+				addEdge(origin, destination, weight);
+				v.EdgeNumber++;
 				
-				g.addEdge(origin, destination, weight);
 			}
-			System.out.println(v.name);
+			 
+				
+			
+		//	System.out.println(v.name);
 		}
 		
 		//if (v.EdgeNumber <= Constants.EDGE_NUMBER) {
@@ -77,12 +91,12 @@ public class Graph {
 	
 	
 	
-	public int CalculateWeight(Graph g, int origin, int destination) {
+	public int CalculateWeight( int origin, int destination) {
 		
 		int Weigth=0;		
 		
-		Weigth= (int) Math.sqrt(Math.abs(g.getVertex(origin).xpos+g.getVertex(destination).xpos)
-				+ Math.abs(g.getVertex(origin).ypos + g.getVertex(destination).ypos)) ;
+		Weigth= (int) Math.sqrt(Math.abs(getVertex(origin).xpos+getVertex(destination).xpos)
+				+ Math.abs(getVertex(origin).ypos + getVertex(destination).ypos)) ;
 					  
 		return Weigth;
 		

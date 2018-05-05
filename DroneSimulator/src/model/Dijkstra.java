@@ -1,3 +1,4 @@
+
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
@@ -5,37 +6,26 @@
  */
 package model;
 import java.util.*;
-//import simulatorlogic.Graph; 
 
-/**
- *
- * @author ariel
- */
+
+
 public class Dijkstra {
    
     public void PrintGraph(Graph g){
      	// Print the minimum Distance.
-	for(Vertex v:g.getVertices()){
-	System.out.print("Vertex - "+v.name+" , Dist - "+ v.minDistance+" , Path - ");
-	for(Vertex pathvert:v.path) {
-        System.out.print(pathvert+" ");
-			}
-	System.out.println(""+v.name);
-		}
-	
-            
-            
-            
-            
-        }
+    	for(Vertex v:g.getVertices()){
+    		System.out.print("Vertex - "+v.name+" , Dist - "+ v.minDistance+" , Path - ");
+    		for(Vertex pathvert:v.path) {
+    			System.out.print(pathvert.name+" ");     
+    		}
+    		System.out.println(""+ v.name);
+    	} 
+    	
+    	//System.out.println("A");
+	}
 
 	public void calculate(Vertex source){
-		// Algo:
-		// 1. Take the unvisited node with minimum weight.
-		// 2. Visit all its neighbours.
-		// 3. Update the distances for all the neighbours (In the Priority Queue).
-		// Repeat the process till all the connected nodes are visited.
-		
+
 		source.minDistance = 0;
 		PriorityQueue<Vertex> queue = new PriorityQueue<Vertex>();
 		queue.add(source);

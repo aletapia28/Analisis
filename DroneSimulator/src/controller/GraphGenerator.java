@@ -19,7 +19,8 @@ public class GraphGenerator {
 		//	this.Stations = new ArrayList<Vertex>();
 	//		this.Edges= new ArrayList<Edge>();
 			this.graph= new Graph(Constants.STATIONS_NUMBER);
-			graph.GenerateEdge(graph, 1);
+			//this.graph.GenerateEdge(graph, 1);
+			
 			
 			//GenerateEdge(graph, 1);
 			//	ModifyDistance(graph);

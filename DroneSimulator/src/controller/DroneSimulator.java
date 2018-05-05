@@ -23,12 +23,13 @@ public class DroneSimulator {
    
        Calculations c = new Calculations();
        c.getCapacity(Constants.ROAD_WIDTH, Constants.ROAD_HIGH, Constants.DRONE_NUMBER);
-       GraphGenerator g= new GraphGenerator();
+      // GraphGenerator g= new GraphGenerator();
+       c.getTravelNumbers(Constants.DRONE_NUMBER);
        
-       //Graph g = new Graph(9);
-      // Dijkstra obj = new Dijkstra();
-       //obj.calculate(g.getVertex(8));
-      // obj.PrintGraph(g);
+       Graph g = new Graph(Constants.STATIONS_NUMBER);
+       Dijkstra obj = new Dijkstra();
+       obj.calculate(g.getVertex(1));
+       obj.PrintGraph(g);
 
        
        
@@ -43,7 +44,7 @@ public class DroneSimulator {
 //	Graph g = new Graph(9);
 		
        
-       //	// Add the required edges.
+//       //	// Add the required edges.
 //    g.addEdge(0, 1, 4); g.addEdge(0, 7, 8);
 //	g.addEdge(1, 2, 8); g.addEdge(1, 7, 11); g.addEdge(2, 1, 8);
 //	g.addEdge(2, 8, 2); g.addEdge(2, 5, 4); g.addEdge(2, 3, 7);

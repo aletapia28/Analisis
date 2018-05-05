@@ -11,6 +11,7 @@ import java.util.*;
  *
  * @author ariel
  */
+
 public class Vertex implements Comparable<Vertex>{
     public final int name;
     public int xpos=0;
@@ -36,8 +37,8 @@ public class Vertex implements Comparable<Vertex>{
 		this.name = name;
 		neighbours = new ArrayList<Edge>();
 		path = new LinkedList<Vertex>();
-                this.xpos=x;
-                this.ypos=y;
+        this.xpos=x;
+        this.ypos=y;
                 
 	}
 		public int getXpos() {
