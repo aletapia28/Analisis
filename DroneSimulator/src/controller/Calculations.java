@@ -52,17 +52,20 @@ public class Calculations {
     public int getTravelNumbers(int DroneNumbers){// NUMERO DE VIAJES osea 
         
         int capacity = getCapacity(Constants.ROAD_WIDTH, Constants.ROAD_HIGH, Constants.DRONE_NUMBER);
+<<<<<<< HEAD
         
         int SendsNumber = DroneNumbers/ capacity;
         //System.out.print(SendsNumber);
         
                         
+=======
+        int SendsNumber = TravelNumbers/ capacity;                              
+>>>>>>> victor
         return SendsNumber;
     }
     
 
             
-    
     public int getTimeStation(int weight, int OriginStation, int ArrivalStation, HashMap<String, Float> distancias){// tiempo que se necesita de una estación a otra
        
         int a=0;
