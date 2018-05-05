@@ -55,6 +55,7 @@ public class Graph {
 		
 		Vertex v= g.getVertex(Origin);
 		for (int i=0; i<= Constants.EDGE_NUMBER; i++) {
+			//if (v.)
 			System.out.println(v.name);
 		}
 		
