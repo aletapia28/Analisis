@@ -1,47 +1,66 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package model;
-import java.util.*;
-import model.Graph;
-import model.Vertex; 
 
-/**
- *
- * @author Víctor
- */
-public class Dijkstra {
-	List<Vertex>  listos=null;
-	String  rutaMasCorta;                           // distancia más corta
+import java.util.ArrayList;
+import java.util.LinkedList;
+import java.util.List;
+import java.util.PriorityQueue;
+import java.util.Queue;
+import java.util.Stack;
+import java.util.Vector;
+
+public class Grafo2 {
+    char[]  nodos;  // Letras de identificación de nodo
+    int[][] grafo;  // Matriz de distancias entre nodos
+    String  rutaMasCorta;                           // distancia más corta
     int     longitudMasCorta = Integer.MAX_VALUE;   // ruta más corta
-    int[][] grafo;
-    
-    
-	public String encontrarRutaMinimaDijkstra(char inicio, char fin) {
+    List<NodoPrueba>  listos=null;                        // nodos revisados Dijkstra
+ 
+    // construye el grafo con la serie de identificadores de nodo en una cadena
+    Grafo2(String serieNodos) {
+        nodos = serieNodos.toCharArray();
+        grafo = new int[nodos.length][nodos.length];
+    }
+ 
+    // asigna el tamaño de la arista entre dos nodos
+    public void agregarRuta(char origen, char destino, int distancia) {
+        int n1 = posicionNodo(origen);
+        int n2 = posicionNodo(destino);
+        grafo[n1][n2]=distancia;
+        grafo[n2][n1]=distancia;
+    }
+ 
+    // retorna la posición en el arreglo de un nodo específico
+    private int posicionNodo(char nodo) {
+        for(int i=0; i<nodos.length; i++) {
+            if(nodos[i]==nodo) return i;
+        }
+        return -1;
+    }
+     
+    // encuentra la ruta más corta desde un nodo origen a un nodo destino
+    public String encontrarRutaMinimaDijkstra(char inicio, char fin) {
         // calcula la ruta más corta del inicio a los demás
         encontrarRutaMinimaDijkstra(inicio);
         // recupera el nodo final de la lista de terminados
-        Vertex tmp = new Vertex(fin);
+        NodoPrueba tmp = new NodoPrueba(fin);
         if(!listos.contains(tmp)) {
             System.out.println("Error");
             return "No se pudo";
         }
         tmp = listos.get(listos.indexOf(tmp));
-        double distancia = tmp.minDistance;  
+        int distancia = tmp.distancia;  
         // crea una pila para almacenar la ruta desde el nodo final al origen
-        Stack<Vertex> pila = new Stack<Vertex>();
+        Stack<NodoPrueba> pila = new Stack<NodoPrueba>();
         while(tmp != null) {
             pila.add(tmp);
-            tmp = tmp.previous;
+            tmp = tmp.procedencia;
         }
         String ruta = "";
-        ArrayList<Integer> recorrido = new ArrayList<Integer>(); //lista recorrido que guarda los nodos utilizados
+        List<Character> recorrido = new ArrayList<Character>(); //lista recorrido que guarda los nodos utilizados
         // recorre la pila para armar la ruta en el orden correcto
         while(!pila.isEmpty()) {
         	
-        	ruta+=(recorrido.add(pila.pop().name)+ " ");
+        	ruta+=(recorrido.add(pila.pop().id)+ " ");
         }
         System.out.println("Ruta utilizada:");
         for (int i = 0; i <= recorrido.size() - 1; i++) {
@@ -52,35 +71,31 @@ public class Dijkstra {
         return "La distancia total es: "+ distancia;
         
     }
-	
+ 
     // encuentra la ruta más corta desde el nodo inicial a todos los demás
     public void encontrarRutaMinimaDijkstra(char inicio) {
-        Queue<Vertex>   cola = new PriorityQueue<Vertex>(); // cola de prioridad
-        Vertex            ni = new Vertex(inicio);          // nodo inicial
+        Queue<NodoPrueba>   cola = new PriorityQueue<NodoPrueba>(); // cola de prioridad
+        NodoPrueba            ni = new NodoPrueba(inicio);          // nodo inicial
          
-        listos = new LinkedList<Vertex>();// lista de nodos ya revisados
+        listos = new LinkedList<NodoPrueba>();// lista de nodos ya revisados
         cola.add(ni);                   // Agregar nodo inicial a la cola de prioridad
         while(!cola.isEmpty()) {        // mientras que la cola no esta vacia
-            Vertex tmp = cola.poll();     // saca el primer elemento
+            NodoPrueba tmp = cola.poll();     // saca el primer elemento
             listos.add(tmp);            // lo manda a la lista de terminados
-            Graph a = new Graph(longitudMasCorta);
-          //ejecutas el metodo de la clase.
-            Vertex b =new Vertex(longitudMasCorta);
-            Graph g = new Graph(longitudMasCorta);
-            int p = a.posicionNodo(tmp.name);   
-            for(int j=0; j<grafo[p].length; j++) {  // revisa los nodos hijos del no1do tmp
+            int p = posicionNodo(tmp.id);   
+            for(int j=0; j<grafo[p].length; j++) {  // revisa los nodos hijos del nodo tmp
                 if(grafo[p][j]==0) continue;        // si no hay conexión no lo evalua
                 if(estaTerminado(j)) continue;      // si ya fue agregado a la lista de terminados
-                Vertex nod = new Vertex(b.path.get(j),tmp.minDistance+grafo[p][j],tmp);
+                NodoPrueba nod = new NodoPrueba(nodos[j],tmp.distancia+grafo[p][j],tmp);
                 // si no está en la cola de prioridad, lo agrega
                 if(!cola.contains(nod)) {
                     cola.add(nod);
                     continue;
                 }
                 // si ya está en la cola de prioridad actualiza la distancia menor
-                for(Vertex x: cola) {
+                for(NodoPrueba x: cola) {
                     // si la distancia en la cola es mayor que la distancia calculada
-                    if(x.name==nod.name && x.minDistance > nod.minDistance) {
+                    if(x.id==nod.id && x.distancia > nod.distancia) {
                         cola.remove(x); // remueve el nodo de la cola
                         cola.add(nod);  // agrega el nodo con la nueva distancia
                         break;          // no sigue revisando
@@ -91,17 +106,15 @@ public class Dijkstra {
     }
  
     // verifica si un nodo ya está en lista de terminados
-    Vertex c = new Vertex(longitudMasCorta);
     public boolean estaTerminado(int j) {
-    	Vertex tmp = new Vertex(c.path.get(j).name);
+        NodoPrueba tmp = new NodoPrueba(nodos[j]);
         return listos.contains(tmp);
     }
  
     // encontrar la ruta mínima por fuerza bruta
     public void encontrarRutaMinimaFuerzaBruta(char inicio, char fin) {
-    	Graph a = new Graph(longitudMasCorta);
-        int p1 = a.posicionNodo(inicio);
-        int p2 = a.posicionNodo(fin);
+        int p1 = posicionNodo(inicio);
+        int p2 = posicionNodo(fin);
         // cola para almacenar cada ruta que está siendo evaluada
         Stack<Integer> resultado = new Stack<Integer>();
         resultado.push(p1);
@@ -117,7 +130,7 @@ public class Dijkstra {
             if(respuesta < longitudMasCorta) {
                 longitudMasCorta = respuesta;
                 rutaMasCorta     = "";
-                for(int x: resultado) rutaMasCorta+=(c.path.get(x)+" ");
+                for(int x: resultado) rutaMasCorta+=(nodos[x]+" ");
             }
             return;
         }
@@ -145,8 +158,8 @@ public class Dijkstra {
         return resp;
     }
  
-   /* public static void main(String[] args) {
-        Graph g = new Graph(4);
+    public static void main(String[] args) {
+        Grafo2 g = new Grafo2("abcdef");
         g.agregarRuta('a','b', 3);
         g.agregarRuta('a','e', 6);
         g.agregarRuta('a','f',10);
@@ -162,6 +175,5 @@ public class Dijkstra {
         char fin    = 'f';
         String respuesta = g.encontrarRutaMinimaDijkstra(inicio, fin);
         System.out.println(respuesta);
-    
-    }*/
+    }
 }

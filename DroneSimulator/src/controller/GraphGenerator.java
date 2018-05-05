@@ -43,7 +43,7 @@ public class GraphGenerator {
 		}*/
 		
 		
-	/*	public double CalculateWeight(Graph g, int origin, int destination) {
+		public double CalculateWeight(Graph g, int origin, int destination) {
 			
 			double Weigth=0;		
 			
@@ -55,7 +55,7 @@ public class GraphGenerator {
 		
 			
 			
-		}*/
+		}
 		
 	/*	public void GenerateEdge(Graph g, int Origin) {
 			// ver cual es la distancia mas corta

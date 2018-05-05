@@ -11,7 +11,7 @@ import controller.Constants;
 
 /**
  *
- * @author ariel
+ * @author
  */
 public class Graph {
     private ArrayList<Vertex> vertices;
@@ -26,10 +26,12 @@ public class Graph {
 	}
 	
 
-	
-//	public Graph (ArrayList <Vertex> vertexs) {		
-	
-//	}
+	public int posicionNodo(int nodo) {
+        for(int i=0; i<vertices.size(); i++) {
+            if(vertices.get(i).name ==nodo) return i;
+        }
+        return -1;
+    }
 
 	
 	public void addEdge(int src, int dest, int weight){

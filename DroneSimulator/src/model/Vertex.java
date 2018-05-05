@@ -9,7 +9,7 @@ import java.util.*;
 
 /**
  *
- * @author ariel
+ * @author 
  */
 public class Vertex implements Comparable<Vertex>{
     public final int name;
@@ -20,25 +20,24 @@ public class Vertex implements Comparable<Vertex>{
     public LinkedList<Vertex> path;
     public double minDistance = Double.POSITIVE_INFINITY;
     public Vertex previous;
-    
-    
+    Vertex procedencia = null;
     public int compareTo(Vertex other){
 		return Double.compare(minDistance,other.minDistance);		
 	}
 	public Vertex(int name){
 		this.name = name;
 		neighbours = new ArrayList<Edge>();
-		path = new LinkedList<Vertex>();
-                
+		path = new LinkedList<Vertex>();         
 	}
-        public Vertex(int name,int x,int y){
+       /* public Vertex(int name,int x,int y){
 		this.name = name;
 		neighbours = new ArrayList<Edge>();
 		path = new LinkedList<Vertex>();
                 this.xpos=x;
                 this.ypos=y;
-                
-	}
+	}*/
+        Vertex(Vertex vertex, double d, Vertex p) { name=vertex; minDistance = d; procedencia=p; }
+		
 		public int getXpos() {
 			return xpos;
 		}
@@ -54,7 +53,4 @@ public class Vertex implements Comparable<Vertex>{
 		public int getName() {
 			return name;
 		}
-        
-        
-		
 }
