@@ -7,6 +7,7 @@ package model;
 
 import java.util.*;
 import controller.Constants;
+import controller.GraphGenerator;
 
 
 /**
@@ -55,7 +56,14 @@ public class Graph {
 		
 		Vertex v= g.getVertex(Origin);
 		for (int i=0; i<= Constants.EDGE_NUMBER; i++) {
-			//if (v.)
+			if (v.EdgeNumber <= Constants.EDGE_NUMBER) {
+				// hay que saber cual es la ruta mas corta y su peso
+				int origin=Origin;
+				int destination=0;//Dikstra
+				int weight= CalculateWeight(g, origin, destination);
+				
+				g.addEdge(origin, destination, weight);
+			}
 			System.out.println(v.name);
 		}
 		
@@ -64,6 +72,24 @@ public class Graph {
 			// cual lista es la que lo tiene? victor
 			
 	//	}
+		
+	}
+	
+	
+	
+	public int CalculateWeight(Graph g, int origin, int destination) {
+		
+		int Weigth=0;		
+		
+		Weigth= (int) Math.sqrt(Math.abs(g.getVertex(origin).xpos+g.getVertex(destination).xpos)
+				+ Math.abs(g.getVertex(origin).ypos + g.getVertex(destination).ypos)) ;
+					  
+		return Weigth;
+		
+		
+		
+	
+		
 		
 	}
 }
