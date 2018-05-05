@@ -1,14 +1,22 @@
-import java.util.*;
- 
-public class Grafo {
+package model;
+
+import java.util.ArrayList;
+import java.util.LinkedList;
+import java.util.List;
+import java.util.PriorityQueue;
+import java.util.Queue;
+import java.util.Stack;
+import java.util.Vector;
+
+public class Grafo2 {
     char[]  nodos;  // Letras de identificación de nodo
     int[][] grafo;  // Matriz de distancias entre nodos
     String  rutaMasCorta;                           // distancia más corta
     int     longitudMasCorta = Integer.MAX_VALUE;   // ruta más corta
-    List<Nodo>  listos=null;                        // nodos revisados Dijkstra
+    List<NodoPrueba>  listos=null;                        // nodos revisados Dijkstra
  
     // construye el grafo con la serie de identificadores de nodo en una cadena
-    Grafo(String serieNodos) {
+    Grafo2(String serieNodos) {
         nodos = serieNodos.toCharArray();
         grafo = new int[nodos.length][nodos.length];
     }
@@ -34,7 +42,7 @@ public class Grafo {
         // calcula la ruta más corta del inicio a los demás
         encontrarRutaMinimaDijkstra(inicio);
         // recupera el nodo final de la lista de terminados
-        Nodo tmp = new Nodo(fin);
+        NodoPrueba tmp = new NodoPrueba(fin);
         if(!listos.contains(tmp)) {
             System.out.println("Error");
             return "No se pudo";
@@ -42,7 +50,7 @@ public class Grafo {
         tmp = listos.get(listos.indexOf(tmp));
         int distancia = tmp.distancia;  
         // crea una pila para almacenar la ruta desde el nodo final al origen
-        Stack<Nodo> pila = new Stack<Nodo>();
+        Stack<NodoPrueba> pila = new Stack<NodoPrueba>();
         while(tmp != null) {
             pila.add(tmp);
             tmp = tmp.procedencia;
@@ -66,26 +74,26 @@ public class Grafo {
  
     // encuentra la ruta más corta desde el nodo inicial a todos los demás
     public void encontrarRutaMinimaDijkstra(char inicio) {
-        Queue<Nodo>   cola = new PriorityQueue<Nodo>(); // cola de prioridad
-        Nodo            ni = new Nodo(inicio);          // nodo inicial
+        Queue<NodoPrueba>   cola = new PriorityQueue<NodoPrueba>(); // cola de prioridad
+        NodoPrueba            ni = new NodoPrueba(inicio);          // nodo inicial
          
-        listos = new LinkedList<Nodo>();// lista de nodos ya revisados
+        listos = new LinkedList<NodoPrueba>();// lista de nodos ya revisados
         cola.add(ni);                   // Agregar nodo inicial a la cola de prioridad
         while(!cola.isEmpty()) {        // mientras que la cola no esta vacia
-            Nodo tmp = cola.poll();     // saca el primer elemento
+            NodoPrueba tmp = cola.poll();     // saca el primer elemento
             listos.add(tmp);            // lo manda a la lista de terminados
             int p = posicionNodo(tmp.id);   
             for(int j=0; j<grafo[p].length; j++) {  // revisa los nodos hijos del nodo tmp
                 if(grafo[p][j]==0) continue;        // si no hay conexión no lo evalua
                 if(estaTerminado(j)) continue;      // si ya fue agregado a la lista de terminados
-                Nodo nod = new Nodo(nodos[j],tmp.distancia+grafo[p][j],tmp);
+                NodoPrueba nod = new NodoPrueba(nodos[j],tmp.distancia+grafo[p][j],tmp);
                 // si no está en la cola de prioridad, lo agrega
                 if(!cola.contains(nod)) {
                     cola.add(nod);
                     continue;
                 }
                 // si ya está en la cola de prioridad actualiza la distancia menor
-                for(Nodo x: cola) {
+                for(NodoPrueba x: cola) {
                     // si la distancia en la cola es mayor que la distancia calculada
                     if(x.id==nod.id && x.distancia > nod.distancia) {
                         cola.remove(x); // remueve el nodo de la cola
@@ -99,7 +107,7 @@ public class Grafo {
  
     // verifica si un nodo ya está en lista de terminados
     public boolean estaTerminado(int j) {
-        Nodo tmp = new Nodo(nodos[j]);
+        NodoPrueba tmp = new NodoPrueba(nodos[j]);
         return listos.contains(tmp);
     }
  
@@ -151,7 +159,7 @@ public class Grafo {
     }
  
     public static void main(String[] args) {
-        Grafo g = new Grafo("abcdef");
+        Grafo2 g = new Grafo2("abcdef");
         g.agregarRuta('a','b', 3);
         g.agregarRuta('a','e', 6);
         g.agregarRuta('a','f',10);
@@ -162,7 +170,8 @@ public class Grafo {
         g.agregarRuta('c','f', 7);
         g.agregarRuta('d','f', 4);
         g.agregarRuta('e','f', 4);
-        char inicio = 'd';
+        g.agregarRuta('e', 'f', 1);
+        char inicio = 'a';
         char fin    = 'f';
         String respuesta = g.encontrarRutaMinimaDijkstra(inicio, fin);
         System.out.println(respuesta);

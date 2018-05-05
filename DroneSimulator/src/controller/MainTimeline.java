@@ -1,22 +1,28 @@
 package controller;
 
 import java.util.ArrayList;
+import controller.Constants;
+import controller.Calculations;
 import java.util.HashMap;
 
 public class MainTimeline {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
+	
+		
 		Timeline timeline  = new Timeline();
-        int cantidad = 30;
+        int cantidad = Constants.STATIONS_NUMBER;
+        
         
         for(int i=0;i<cantidad;i++){
             HashMap<Integer,Integer>aux=new HashMap<Integer,Integer>();
-            for(int y=0;y<100;y++){
+            for(int y=0;y< 100; y++){
                 aux.put(y,0);
             }
             timeline.madeSlot(i, aux);
         }
+        
         
         int[] ruta1= {1,3,4};
         int[] ruta2= {4,3,5};
@@ -37,12 +43,15 @@ public class MainTimeline {
         for(int todasrutas=0;todasrutas<rutas.size();todasrutas++){
             for(int ruta=0;ruta<rutas.get(todasrutas).length;ruta++){
                 if(timeline.ocupated(rutas.get(todasrutas)[0], 0)==false){
-                    timeline.updateSlot(rutas.get(todasrutas)[0],0);
+                
+                	timeline.updateSlot(rutas.get(todasrutas)[0],0);
                 }
+                
             }
         }
         timeline.updateSlot(5, 4);
         timeline.updateSlot(1, 20);
+        
         for(int i=0;i<cantidad;i++){
             System.out.print(i+ "->" +timeline.getSlot(i)+"\n");
         }

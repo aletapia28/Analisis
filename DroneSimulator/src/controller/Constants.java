@@ -19,9 +19,9 @@ public interface Constants {
    public static int ROAD_HIGH=100;
    public static int ROAD_WIDTH =300;
    public static int DRONE_NUMBER=100000;
-   public static int SIMULATION_TIME=0;
+   public static double SIMULATION_TIME=10000;
    public static int EDGE_NUMBER=2;
-   
+   public static int HOUR_SEC0NDS =5;
    public static int DRONE_HIGH=3;
    public static int DRONE_WIDTH=2;
    public static int DRONE_LONG=2;
@@ -29,8 +29,8 @@ public interface Constants {
    
    
    Vertex N1 = new Vertex (1,2,3);
-   Vertex N2 = new Vertex (2,2,3);
-   Vertex N3 = new Vertex (3,2,3);
+   Vertex N2 = new Vertex (2,276,36);
+   Vertex N3 = new Vertex (3,28,37);
    Vertex N4 = new Vertex (4,2,3);
    Vertex N5 = new Vertex (5,2,3);
    Vertex N6 = new Vertex (6,2,3);
@@ -58,6 +58,7 @@ public interface Constants {
    Vertex N28 = new Vertex (28,2,3);
    Vertex N29 = new Vertex (29,2,3);
    Vertex N30 = new Vertex (30,2,3);
+   
    
    
    
