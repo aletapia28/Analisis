@@ -25,16 +25,28 @@ public class Calculations {
         StationCapacity = (WidthCapacity*HighCapacity); // cantidad de drones por pista
         
         
-      // System.out.println(StationCapacity);
+     //  System.out.println("capacidad"+StationCapacity);
                         
         return StationCapacity;
     }
     
-    
-    public int getTimeSlots (){
-        int slots=0; 
+    public double getTimeSlots (){
+    	double slot=0; 
         
-        return slots;
+        slot =  (0.025) *Constants.HOUR_SEC0NDS;
+       
+        
+        return slot;
+    }
+    
+    public int getSlots (){
+        double slots=0; 
+        
+        slots = Constants.SIMULATION_TIME/ getTimeSlots();
+        int a  = (int)slots;
+      
+        
+        return a/100;
     }
     
     public int getTravelNumbers(int DroneNumbers){// NUMERO DE VIAJES osea 
@@ -47,7 +59,6 @@ public class Calculations {
                         
         return SendsNumber;
     }
-    
     
 
             

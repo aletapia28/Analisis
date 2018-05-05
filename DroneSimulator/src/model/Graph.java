@@ -21,7 +21,7 @@ public class Graph {
 	public Graph(int numberVertices){
 		vertices = new ArrayList<Vertex>(numberVertices);
 		for(int i=0;i<numberVertices;i++){
-			vertices.add(Constants.N1);
+			//vertices.add(Constants.N1);
 			vertices.add(new Vertex(i));
 			
 			
@@ -33,6 +33,7 @@ public class Graph {
 		
 	}
 	
+<<<<<<< HEAD
 	public int posicionNodo(int nodo) {
         for(int i=0; i<vertices.size(); i++) {
             if(vertices.get(i).name ==nodo) return i;
@@ -40,6 +41,15 @@ public class Graph {
         return -1;
     }
 
+=======
+	
+	
+	
+	
+//	public Graph (ArrayList <Vertex> vertexs) {		
+	
+//	}
+>>>>>>> de81ceeb24127ef3210eac70fb215c62f733fb04
 
 	
 	public void addEdge(int src, int dest, int weight){
@@ -61,12 +71,12 @@ public class Graph {
 	public void GenerateEdge( int Origin) {
 		
 		Vertex v= getVertex(Origin);
-		System.out.println(v.name);
+		//System.out.println(v.name);
 		
 				
 		for (int i=0; i< Constants.EDGE_NUMBER; i++) {
 			if (v.EdgeNumber <= Constants.EDGE_NUMBER) {
-				System.out.println("ENTRO");
+				//System.out.println("ENTRO");
 				// hay que saber cual es la ruta mas corta y su peso
 				int origin=Origin;
 				int destination=(int) (Math.random() * Constants.STATIONS_NUMBER) ; //Dikstra 
@@ -78,18 +88,7 @@ public class Graph {
 				v.EdgeNumber++;
 				
 			}
-			 
-				
-			
-		//	System.out.println(v.name);
 		}
-		
-		//if (v.EdgeNumber <= Constants.EDGE_NUMBER) {
-			// ver cuales son los vecinos cercanos
-			// cual lista es la que lo tiene? victor
-			
-	//	}
-		
 	}
 	
 	
@@ -103,11 +102,8 @@ public class Graph {
 					  
 		return Weigth;
 		
-		
-		
-	
-		
-		
 	}
+	
+	
 }
 
