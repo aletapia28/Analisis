@@ -21,7 +21,7 @@ public class Graph {
 		vertices = new ArrayList<Vertex>(numberVertices);
 		for(int i=0;i<numberVertices;i++){
 			vertices.add(new Vertex(i));
-			//System.out.println(vertices.get(i).name);
+			System.out.println(vertices.get(i).name);
 		}
 	}
 	
