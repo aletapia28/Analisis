@@ -39,14 +39,10 @@ public class Calculations {
     public int getTravelNumbers(int TravelNumbers){// NUMERO DE VIAJES
         
         int capacity = getCapacity(Constants.ROAD_WIDTH, Constants.ROAD_HIGH, Constants.DRONE_NUMBER);
-        int SendsNumber = TravelNumbers/ capacity;
-    //    System.out.print(capacity);
-        
-                        
+        int SendsNumber = TravelNumbers/ capacity;                              
         return SendsNumber;
     }
             
-    
     public int getTimeStation(int weight, int OriginStation, int ArrivalStation, HashMap<String, Float> distancias){// tiempo que se necesita de una estación a otra
        
         int a=0;
