@@ -37,7 +37,8 @@ public class Vertex implements Comparable<Vertex>{
                 this.xpos=x;
                 this.ypos=y;
 	}*/
-        Vertex(Vertex vertex, double d, Vertex p) { name=vertex; minDistance = d; procedencia=p; }
+        
+        Vertex(int x, double d, Vertex p) { name=x; minDistance=d; procedencia=p; }
 		
 		public int getXpos() {
 			return xpos;
@@ -54,11 +55,5 @@ public class Vertex implements Comparable<Vertex>{
 		public int getName() {
 			return name;
 		}
-<<<<<<< HEAD
-=======
-        
-        
-		
-		
->>>>>>> 63dfd37489cd67c9e412bb5aa387f078c47d885e
+
 }

@@ -25,20 +25,13 @@ public class Graph {
 		}
 	}
 	
-<<<<<<< HEAD
-
 	public int posicionNodo(int nodo) {
         for(int i=0; i<vertices.size(); i++) {
             if(vertices.get(i).name ==nodo) return i;
         }
         return -1;
     }
-=======
-	
-//	public Graph (ArrayList <Vertex> vertexs) {		
-	
-//	}
->>>>>>> 63dfd37489cd67c9e412bb5aa387f078c47d885e
+
 
 	
 	public void addEdge(int src, int dest, int weight){

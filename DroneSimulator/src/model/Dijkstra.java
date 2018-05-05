@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package model;
 import java.util.*;
 import model.Graph;
@@ -13,14 +8,13 @@ import model.Vertex;
  * @author Víctor
  */
 public class Dijkstra {
-<<<<<<< HEAD
 	List<Vertex>  listos=null;
 	String  rutaMasCorta;                           // distancia más corta
     int     longitudMasCorta = Integer.MAX_VALUE;   // ruta más corta
     int[][] grafo;
     
     
-	public String encontrarRutaMinimaDijkstra(char inicio, char fin) {
+	public String encontrarRutaMinimaDijkstra(int inicio, int fin) {
         // calcula la ruta más corta del inicio a los demás
         encontrarRutaMinimaDijkstra(inicio);
         // recupera el nodo final de la lista de terminados
@@ -55,7 +49,7 @@ public class Dijkstra {
     }
 	
     // encuentra la ruta más corta desde el nodo inicial a todos los demás
-    public void encontrarRutaMinimaDijkstra(char inicio) {
+    public void encontrarRutaMinimaDijkstra(int inicio) {
         Queue<Vertex>   cola = new PriorityQueue<Vertex>(); // cola de prioridad
         Vertex            ni = new Vertex(inicio);          // nodo inicial
          
@@ -72,7 +66,7 @@ public class Dijkstra {
             for(int j=0; j<grafo[p].length; j++) {  // revisa los nodos hijos del no1do tmp
                 if(grafo[p][j]==0) continue;        // si no hay conexión no lo evalua
                 if(estaTerminado(j)) continue;      // si ya fue agregado a la lista de terminados
-                Vertex nod = new Vertex(b.path.get(j),tmp.minDistance+grafo[p][j],tmp);
+                Vertex nod = new Vertex(b.path.get(j).name,tmp.minDistance+grafo[p][j],tmp);
                 // si no está en la cola de prioridad, lo agrega
                 if(!cola.contains(nod)) {
                     cola.add(nod);
@@ -99,7 +93,7 @@ public class Dijkstra {
     }
  
     // encontrar la ruta mínima por fuerza bruta
-    public void encontrarRutaMinimaFuerzaBruta(char inicio, char fin) {
+    public void encontrarRutaMinimaFuerzaBruta(int inicio, int fin) {
     	Graph a = new Graph(longitudMasCorta);
         int p1 = a.posicionNodo(inicio);
         int p2 = a.posicionNodo(fin);
@@ -146,73 +140,20 @@ public class Dijkstra {
         return resp;
     }
  
-   /* public static void main(String[] args) {
-        Graph g = new Graph(4);
-        g.agregarRuta('a','b', 3);
-        g.agregarRuta('a','e', 6);
-        g.agregarRuta('a','f',10);
-        g.agregarRuta('b','c', 5);
-        g.agregarRuta('b','e', 2);
-        g.agregarRuta('c','d', 8);
-        g.agregarRuta('c','e', 9);
-        g.agregarRuta('c','f', 7);
-        g.agregarRuta('d','f', 4);
-        g.agregarRuta('e','f', 4);
-        g.agregarRuta('e', 'f', 1);
-        char inicio = 'a';
-        char fin    = 'f';
-        String respuesta = g.encontrarRutaMinimaDijkstra(inicio, fin);
+   public static void main(String[] args) {
+        Graph g = new Graph(5);
+        Dijkstra d = new Dijkstra();
+        g.addEdge(1, 2, 3);
+        g.addEdge(1, 3, 2);
+        g.addEdge(1, 3, 1);
+        g.addEdge(2, 3, 7);
+        g.addEdge(3, 5, 10);
+        g.addEdge(4, 2, 3);
+        g.addEdge(5, 2, 3);
+        int inicio = 1;
+        int fin    = 5;
+        String respuesta = d.encontrarRutaMinimaDijkstra(inicio, fin);
         System.out.println(respuesta);
-=======
-   
-    public void PrintGraph(Graph g){
-     	// Print the minimum Distance.
-	for(Vertex v:g.getVertices()){
-	System.out.print("Vertex - "+v.name+" , Dist - "+ v.minDistance+" , Path - ");
-	for(Vertex pathvert:v.path) {
-        System.out.print(pathvert+" ");
-			}
-	System.out.println(""+v.name);
-		}
-	
-            
-            
-            
-            
-        }
-
-	public void calculate(Vertex source){
-		// Algo:
-		// 1. Take the unvisited node with minimum weight.
-		// 2. Visit all its neighbours.
-		// 3. Update the distances for all the neighbours (In the Priority Queue).
-		// Repeat the process till all the connected nodes are visited.
-		
-		source.minDistance = 0;
-		PriorityQueue<Vertex> queue = new PriorityQueue<Vertex>();
-		queue.add(source);
-		
-		while(!queue.isEmpty()){			
-			Vertex u = queue.poll();		
-			for(Edge neighbour:u.neighbours){
-				Double newDist = u.minDistance+neighbour.weight;
-				
-				if(neighbour.target.minDistance>newDist){
-					// Remove the node from the queue to update the distance value.
-					queue.remove(neighbour.target);
-					neighbour.target.minDistance = newDist;
-										
-					// Take the path visited till now and add the new node.s
-					neighbour.target.path = new LinkedList<Vertex>(u.path);
-					neighbour.target.path.add(u);
-					
-					//Reenter the node with new distance.
-					queue.add(neighbour.target);					
-				}
-			}
-		}
-	}
->>>>>>> 63dfd37489cd67c9e412bb5aa387f078c47d885e
     
-    }*/
+    }
 }
