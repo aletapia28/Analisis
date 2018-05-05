@@ -23,7 +23,7 @@ public class Calculations {
         tracks=  1000/ROAD_WIDTH ; // cantidad de pistas que caben en el kilometro
         StationCapacity = tracks* WidthCapacity; // cantidad de drones con todas las pistas
         
-        System.out.println(WidthCapacity);
+     //   System.out.println(WidthCapacity);
         
                 
         return WidthCapacity;
@@ -40,9 +40,9 @@ public class Calculations {
         
         int capacity = getCapacity(Constants.ROAD_WIDTH, Constants.ROAD_HIGH, Constants.DRONE_NUMBER);
         int SendsNumber = TravelNumbers/ capacity;
-        System.out.print(capacity);
+    //    System.out.print(capacity);
         
-                
+                        
         return SendsNumber;
     }
             

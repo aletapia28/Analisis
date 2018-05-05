@@ -20,11 +20,12 @@ public class Graph {
 	public Graph(int numberVertices){
 		vertices = new ArrayList<Vertex>(numberVertices);
 		for(int i=0;i<numberVertices;i++){
-			
 			vertices.add(new Vertex(i));
+			//System.out.println(vertices.get(i).name);
 		}
 	}
 	
+<<<<<<< HEAD
 
 	public int posicionNodo(int nodo) {
         for(int i=0; i<vertices.size(); i++) {
@@ -32,6 +33,12 @@ public class Graph {
         }
         return -1;
     }
+=======
+	
+//	public Graph (ArrayList <Vertex> vertexs) {		
+	
+//	}
+>>>>>>> 63dfd37489cd67c9e412bb5aa387f078c47d885e
 
 	
 	public void addEdge(int src, int dest, int weight){
@@ -47,6 +54,27 @@ public class Graph {
 	
 	public Vertex getVertex(int vert){
 		return vertices.get(vert);
+	}
+	
+	
+	public void GenerateEdge(Graph g, int Origin) {
+		// ver cual es la distancia mas corta
+		// ver si ya tiene min de arcos
+		//si no agrega uno mas
+		
+		
+		Vertex v= g.getVertex(Origin);
+		for (int i=0; i<= Constants.EDGE_NUMBER; i++) {
+			//if (v.)
+			System.out.println(v.name);
+		}
+		
+		//if (v.EdgeNumber <= Constants.EDGE_NUMBER) {
+			// ver cuales son los vecinos cercanos
+			// cual lista es la que lo tiene? victor
+			
+	//	}
+		
 	}
 }
 
